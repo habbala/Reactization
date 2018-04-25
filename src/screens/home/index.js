@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {setCards} from '../../actions';
 import {connect} from 'react-redux';
+import Card from '../../components/card'
 
 const contentful = require('contentful');
 
@@ -24,7 +25,7 @@ const mapDispatchToProps = dispatch => {
 
 class HomeScreen extends Component {
 
-  componentDidMount(){
+  componentWillMount(){
     this.setCardList();
   };
 
@@ -32,6 +33,8 @@ class HomeScreen extends Component {
     client.getEntries({'content_type' : 'trigger'})
       .then((response) => {
         this.props.setCards(response.items);
+        console.log(response.items);
+        console.log(this.props.cards);
       })
       .catch(function(error){
         console.log('error' + error);
@@ -40,9 +43,19 @@ class HomeScreen extends Component {
 
   render(){
 
+    const view = this.props.cards.length > 0 ? (
+      this.props.cards.map((card) => {
+        return(<Card card = {card}/>);
+      })
+    ) : (
+      <div>
+        empty
+      </div>
+    );
+
     return(
       <div>
-        hello
+        {view}
       </div>
     );
   }
