@@ -9,7 +9,7 @@ const rootReducer = (state = initialState, action) => {
 
     case SET_CARDS:
       if(action.cards.length >= 0){
-        return {...state, posts: action.cards };
+        return {...state, cards: action.cards };
       } else {
         return state;
       }

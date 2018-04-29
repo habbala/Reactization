@@ -5,18 +5,17 @@ import './index.css';
 class Card extends Component{
 
   render(){
-    console.log("hej");
-
     if(this.props.card !== ""){
       return(
-        <div>
-          <h2>{this.props.card.fields.title}</h2>
-          <p>{this.props.card.fields.description}</p>
+        <div className="card-container">
+          <div className="card-header">
+            <h3>{this.props.card.fields.title}</h3>
+          </div>
+
+          <div className="card-description-container">
+            <p>{this.props.card.fields.description}</p>
+          </div>
         </div>
-      );
-    } else {
-      return(
-        <div>empty</div>
       );
     }
   }

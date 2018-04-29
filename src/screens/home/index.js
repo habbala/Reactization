@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {setCards} from '../../actions';
 import {connect} from 'react-redux';
 import Card from '../../components/card'
+import Board from '../../components/board'
 
 const contentful = require('contentful');
 
@@ -33,8 +34,6 @@ class HomeScreen extends Component {
     client.getEntries({'content_type' : 'trigger'})
       .then((response) => {
         this.props.setCards(response.items);
-        console.log(response.items);
-        console.log(this.props.cards);
       })
       .catch(function(error){
         console.log('error' + error);
@@ -54,8 +53,11 @@ class HomeScreen extends Component {
     );
 
     return(
+
       <div>
         {view}
+        <Board/>
+
       </div>
     );
   }
