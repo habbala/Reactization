@@ -1,35 +1,42 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import './index.css';
+import Cell from './cell'
 
 class Board extends Component{
 
-  componentDidMount(){
-    const canvas = this.refs.canvas;
-    const ctx = canvas.getContext("2d");
-    ctx.scale(2,2);
+  constructor(props){
+    super(props);
 
+    this.state = {
+      cells: [],
+    }
+  }
+
+  grid(){
     var x,y;
-    var xNum, yNum;
-    var ySize = canvas.height/20;
-    var xSize = canvas.width/20;
+    let arr = this.state.cells;
 
-    for(y = 0 ; y < 10 ; y++){
-      for(x = 0 ; x < 10 ; x++){
-        ctx.fillStyle = "red";
-        ctx.strokeStyle = "black";
-        ctx.lineWidth = 1;
-        ctx.fillRect(x*xSize, y*ySize,xSize, ySize);
-        ctx.strokeRect(x*xSize, y*ySize,xSize, ySize);
+    for(y = 0 ; y < 5 ; y++){
+      for(x = 0 ; x < 5 ; x++){
+        this.setState(state => ({ ...state, cells: state.cells.concat([<Cell xPos={x} yPos={y}/>])}));
       }
     }
 
+  }
 
+  componentDidMount(){
+    this.grid();
   }
 
   render(){
+
+    const grid = this.state.cells.map((cell) => cell);
+
     return(
-      <canvas ref = "canvas" className = "game-canvas"/>
+      <div className="game-grid">
+        {grid}
+      </div>
     );
   }
 }

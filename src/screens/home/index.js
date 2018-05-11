@@ -3,6 +3,7 @@ import {setCards} from '../../actions';
 import {connect} from 'react-redux';
 import Card from '../../components/card'
 import Board from '../../components/board'
+import Top from '../../components/top'
 
 const contentful = require('contentful');
 
@@ -41,8 +42,7 @@ class HomeScreen extends Component {
   };
 
   render(){
-
-    const view = this.props.cards.length > 0 ? (
+    const cardView = this.props.cards.length > 0 ? (
       this.props.cards.map((card) => {
         return(<Card card = {card}/>);
       })
@@ -55,9 +55,9 @@ class HomeScreen extends Component {
     return(
 
       <div>
-        {view}
+        <Top/>
+        {cardView}
         <Board/>
-
       </div>
     );
   }

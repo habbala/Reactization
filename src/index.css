@@ -8,12 +8,13 @@ p, h1, h2, h3, h4{
   margin: 0px;
 }
 
-h1, h2, h3, h4{
+h1, h2, h3{
   text-align: center;
 }
 
 p{
   font-size: 1em;
+  display: inline;
 }
 
 h1{
@@ -30,4 +31,8 @@ h3{
 
 h4{
   font-size: 1.1em;
+  font-style: italic;
+  font-weight: normal;
+  text-align: left;
+  display: inline-block;
 }

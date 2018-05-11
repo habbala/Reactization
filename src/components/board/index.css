@@ -1,4 +1,9 @@
-.game-canvas{
-  width: 1000px;
-  height: 1000px;
+.game-grid{
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 0px;
+  grid-column-gap: 0px;
+  width: 500px;
+  height: 500px;
 }
