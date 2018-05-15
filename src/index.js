@@ -7,14 +7,6 @@ import {Provider} from 'react-redux';
 import store from './store'
 import HomeScreen from './screens/home';
 
-const App = () => (
-  <Router>
-    <div>
-      <Route exact path = "/" render={()=>{ return <HomeScreen/>}}/>
-    </div>
-  </Router>
-)
-
 ReactDOM.render(
   <Provider store = {store}>
     <HomeScreen/>

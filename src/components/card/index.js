@@ -23,13 +23,11 @@ class Card extends Component{
   }
 
   eventHandler(event){
-    console.log(this.props.card.fields.output);
     this.props.setResource(this.props.card.fields.output);
   }
 
   render(){
     if(this.props.card !== ""){
-      console.log(this.props.card);
       return(
         <div className="card-container" onClick={this.eventHandler}>
           <div className="card-header">

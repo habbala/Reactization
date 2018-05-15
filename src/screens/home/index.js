@@ -42,8 +42,8 @@ class HomeScreen extends Component {
   };
 
   render(){
-    const cardView = this.props.cards.length > 0 ? (
-      this.props.cards.map((card) => {
+    const cardView = this.props.cards.cards.length > 0 ? (
+      this.props.cards.cards.map((card) => {
         return(<Card card = {card}/>);
       })
     ) : (
